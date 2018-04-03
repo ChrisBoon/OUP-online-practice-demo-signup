@@ -1,0 +1,30 @@
+@mixin clearfix{
+  &:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin no-select{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin even-cols{
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  >*{
+    display: table-cell;
+  }
+}
+
+@mixin styled-link{
+  text-decoration: none;
+  color: inherit;
+}

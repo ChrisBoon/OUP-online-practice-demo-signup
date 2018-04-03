@@ -1,0 +1,1 @@
+$(document).ready(function(){var e=$(".slide").length;$(".slide-step").click(function(){var t=$(".slide-active").data("slidenumber"),n,r;if($(this).hasClass("slide-back")){n="ltr";t===0?r=e-1:r=t-1}else{n="rtl";t===e-1?r=0:r=t+1}$(".slide").attr("class","slide");$(".slide").eq(r).addClass("slide-active slide-active-"+n);$(".slide").eq(t).addClass("slide-past-"+n)})});

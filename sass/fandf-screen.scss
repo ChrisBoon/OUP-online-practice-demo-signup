@@ -1,0 +1,101 @@
+@import "partials/_screen";
+$od-orange: rgb(238,127,32);
+$od-blue: rgb(103,149,207);
+$od-pink: rgb(201,62,110);
+
+$ff-blue: rgb(0,130,201);
+$ff-blue-light: rgb(99,192,231);
+$ff-yellow: rgb(254,204,0);
+
+.fandf{
+
+  .hero-banner{
+    background-image: url(../img/course-specific/fandf/hero-banner-bg.jpg);
+    @media (-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) { 
+    background-image: url(../img/course-specific/fandf/hero-banner-bg-x2.jpg);
+}
+  }
+  
+  .login-wrap{
+    background:$ff-blue-light;
+  }
+
+  .login{
+    .login-button{
+      background:$ff-yellow;
+      box-shadow: 0 3px 0 0 $ff-blue;
+      color: darken($ff-blue,10);
+      &:hover{
+        background:darken($ff-yellow,2);
+      }
+      &:active{
+        box-shadow: none;
+      }
+    }
+  }
+  
+  .signup{
+    .signup-button{
+      background:$ff-yellow;
+      box-shadow: 0 3px 0 0 $ff-blue;
+      color: $ff-blue;
+      &:hover{
+        background:darken($ff-yellow,2);
+      }
+      &:active{
+        box-shadow: none;
+      }
+    }
+  }
+  .register-note {
+    background:$ff-blue-light;
+  }
+  //benefits
+  .benefits{
+    .benefits-one-liner{
+      color: $ff-blue;
+    }
+    span{
+      color: $ff-blue;
+    }
+  }
+
+  .demo-header{
+    h1{
+      text-align: center;
+    }
+  }
+
+  //features (slideshow)
+  .features{
+    h2{
+      color: $ff-blue;
+    }
+    h3{
+      color: $ff-blue;
+    }
+  }
+  .slideshow{
+    .slide{
+      background-image:url(../img/course-specific/fandf/slide-bg.jpg);
+      background-size: 100%;
+    }
+  }
+  
+  //links
+  .course-links{
+    background:$ff-blue;
+    a{
+      background: darken($ff-blue,25);
+      color: $white;
+      height: auto;
+      line-height: 1;
+      padding: 1.25em 0.25em;
+      font-size: 14px;
+      &:hover{
+        box-shadow: 0 0 0 2px darken($ff-blue,25);
+      }
+    }
+  }
+}

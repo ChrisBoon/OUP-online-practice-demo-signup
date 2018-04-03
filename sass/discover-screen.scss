@@ -1,0 +1,80 @@
+@import "partials/_screen";
+$od-orange: rgb(238,127,32);
+$od-blue: rgb(103,149,207);
+$od-pink: rgb(201,62,110);
+
+.discover{
+
+  //banner
+  .hero-banner{
+    background-image: url(../img/course-specific/discover/hero-banner-bg.jpg);
+    @media (-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) { 
+    background-image: url(../img/course-specific/discover/hero-banner-bg-x2.jpg);
+}
+  }
+  
+  .login-wrap{
+    background:$od-orange;
+  }
+  
+  //sign-up
+  .signup{
+    .signup-button{
+      background:$od-blue;
+      box-shadow: 0 3px 0 0 darken($od-blue, 25);
+      &:hover{
+        background:darken($od-blue,10);
+      }
+      &:active{
+        box-shadow: none;
+      }
+    }
+  }
+  .register-note {
+    background:$od-orange;
+  }
+  //benefits
+  .benefits{
+    .benefits-one-liner{
+      color: darken($od-blue,15);
+    }
+    span{
+      color: darken($od-blue,15);
+    }
+  }
+
+  .demo-header{
+    h1{
+      text-align: center;
+    }
+  }
+
+  //features (slideshow)
+  .features{
+    h2{
+      color: darken($od-blue,15);
+    }
+    h3{
+      color: $od-pink;
+    }
+  }
+  .slideshow{
+    .slide{
+      background-image:url(../img/course-specific/discover/slide-bg.jpg);
+      background-size: 100%;
+    }
+  }
+  
+  //links
+  .course-links{
+    background:$od-blue;
+    a{
+      background: darken($od-blue,25);
+      color: $white;
+      &:hover{
+        box-shadow: 0 0 0 2px darken($od-blue,25);
+      }
+    }
+  }
+}

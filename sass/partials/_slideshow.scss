@@ -1,0 +1,139 @@
+//Note the slideshow relies on css not supported by all browsers.
+//However they will fallback gracefully - only the animation won't happen.
+//I think the trade-off is worth it for mobile performance gain of using css-animation and also ease of changing transition style via css file only if desired for future titles.
+
+//animation keyframes
+@-webkit-keyframes rtl-active {
+  0%   { -webkit-transform: translate(100%, 0); }
+  100% { -webkit-transform: translate(0, 0); }
+}
+@-moz-keyframes rtl-active {
+  0%   { -moz-transform: translate(100%, 0); }
+  100% { -moz-transform: translate(0, 0); }
+}
+@keyframes rtl-active {
+  0%   { transform: translate(100%, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+@-webkit-keyframes rtl-past {
+  0%   { -webkit-transform: translate(0, 0); }
+  100% { -webkit-transform: translate(-100%, 0); }
+}
+@-moz-keyframes rtl-past {
+  0%   { -moz-transform: translate(0, 0); }
+  100% { -moz-transform: translate(-100%, 0); }
+}
+@keyframes rtl-past {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
+}
+
+@-webkit-keyframes ltr-active {
+  0%   { -webkit-transform: translate(-100%, 0); }
+  100% { -webkit-transform: translate(0, 0); }
+}
+@-moz-keyframes ltr-active {
+  0%   { -moz-transform: translate(-100%, 0); }
+  100% { -moz-transform: translate(0, 0); }
+}
+@keyframes ltr-active {
+  0%   { transform: translate(-100%, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+@-webkit-keyframes ltr-past {
+  0%   { -webkit-transform: translate(0, 0); }
+  100% { -webkit-transform: translate(100%, 0); }
+}
+@-moz-keyframes ltr-past {
+  0%   { -moz-transform: translate(0, 0); }
+  100% { -moz-transform: translate(100%, 0); }
+}
+@keyframes ltr-past {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(100%, 0); }
+}
+
+//required styles
+.slideshow{
+  position: relative;
+  height: 325px;
+  
+  .slide-holder{
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
+  .slide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:$grey75;
+    &:nth-child(1){z-index: 0}
+    &:nth-child(2){z-index: 1}
+    &:nth-child(3){z-index: 2}
+    &:nth-child(4){z-index: 3}
+    &:nth-child(5){z-index: 4}
+    &:nth-child(6){z-index: 5}
+    &:nth-child(7){z-index: 6}
+    &.slide-active{
+      z-index:10;
+    }
+    &.slide-active-rtl{
+      -webkit-animation: rtl-active .5s;
+      -moz-animation:    rtl-active 1s;
+      animation:         rtl-active .75s;
+    }
+    &.slide-active-ltr{
+      -webkit-animation: ltr-active .5s;
+      -moz-animation:    ltr-active 1s;
+      animation:         ltr-active .75s;
+    }
+    &.slide-past-rtl{
+      z-index: 9;
+      -webkit-animation: rtl-past .5s;
+      -moz-animation:    rtl-past 1s;
+      animation:         rtl-past .75s;
+    }
+    &.slide-past-ltr{
+      z-index: 9;
+      -webkit-animation: ltr-past .5s;
+      -moz-animation:    ltr-past 1s;
+      animation:         ltr-past .75s;
+    }
+  }
+  .slide-step{
+    position: absolute;
+    top: 45%; //fallback for non-calc browsers - less precise position but acceptable
+    top: -webkit-calc(50% - 27px);
+    top: -moz-calc(50% - 27px);
+    top: calc(50% - 27px);
+    z-index: 11;
+    height: 55px;
+    width: 52px;
+    background-image: url(../img/project/slide-step-bg.png);
+    background-repeat: no-repeat;
+    background-size: 200%;
+    cursor: pointer;
+    -webkit-transition:background 0.2s;
+    -moz-transition:   background 0.2s;
+    transition:        background 0.2s;
+    &.slide-back{
+      left: 4px;
+      background-position: top left;
+      &:hover{
+        background-position: -8px 0;
+      }
+    }
+    &.slide-next{
+      right: 4px;
+      background-position: top right;
+      &:hover{
+        background-position: -44px 0;
+      }
+    }
+  }
+}
